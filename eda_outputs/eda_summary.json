@@ -1,0 +1,143 @@
+{
+  "rows": 2111,
+  "columns": 20,
+  "missing_values": {
+    "Gender": 0,
+    "Age": 0,
+    "Height": 0,
+    "Weight": 0,
+    "family_history_with_overweight": 0,
+    "FAVC": 0,
+    "FCVC": 0,
+    "NCP": 0,
+    "CAEC": 0,
+    "SMOKE": 0,
+    "CH2O": 0,
+    "SCC": 0,
+    "FAF": 0,
+    "TUE": 0,
+    "CALC": 0,
+    "MTRANS": 0,
+    "NObeyesdad": 0,
+    "BMI": 0,
+    "BMI_Category": 0,
+    "Obesity_Risk": 0
+  },
+  "class_counts": {
+    "Obesity_Type_I": 351,
+    "Obesity_Type_III": 324,
+    "Obesity_Type_II": 297,
+    "Overweight_Level_I": 290,
+    "Overweight_Level_II": 290,
+    "Normal_Weight": 287,
+    "Insufficient_Weight": 272
+  },
+  "obesity_prevalence_percent": 46.04,
+  "average_bmi_by_gender": {
+    "Female": 30.13,
+    "Male": 29.28
+  },
+  "obesity_prevalence_by_family_history_percent": {
+    "no": 2.08,
+    "yes": 55.85
+  },
+  "average_bmi_by_transport": {
+    "Automobile": 29.19,
+    "Bike": 25.17,
+    "Motorbike": 25.76,
+    "Public_Transportation": 30.11,
+    "Walking": 23.66
+  },
+  "numeric_summary": {
+    "Age": {
+      "count": 2111.0,
+      "mean": 24.3126,
+      "std": 6.346,
+      "min": 14.0,
+      "25%": 19.9472,
+      "50%": 22.7779,
+      "75%": 26.0,
+      "max": 61.0
+    },
+    "Height": {
+      "count": 2111.0,
+      "mean": 1.7017,
+      "std": 0.0933,
+      "min": 1.45,
+      "25%": 1.63,
+      "50%": 1.7005,
+      "75%": 1.7685,
+      "max": 1.98
+    },
+    "Weight": {
+      "count": 2111.0,
+      "mean": 86.5861,
+      "std": 26.1912,
+      "min": 39.0,
+      "25%": 65.4733,
+      "50%": 83.0,
+      "75%": 107.4307,
+      "max": 173.0
+    },
+    "BMI": {
+      "count": 2111.0,
+      "mean": 29.7002,
+      "std": 8.0113,
+      "min": 12.9987,
+      "25%": 24.3258,
+      "50%": 28.7191,
+      "75%": 36.0165,
+      "max": 50.8118
+    },
+    "FCVC": {
+      "count": 2111.0,
+      "mean": 2.419,
+      "std": 0.5339,
+      "min": 1.0,
+      "25%": 2.0,
+      "50%": 2.3855,
+      "75%": 3.0,
+      "max": 3.0
+    },
+    "NCP": {
+      "count": 2111.0,
+      "mean": 2.6856,
+      "std": 0.778,
+      "min": 1.0,
+      "25%": 2.6587,
+      "50%": 3.0,
+      "75%": 3.0,
+      "max": 4.0
+    },
+    "CH2O": {
+      "count": 2111.0,
+      "mean": 2.008,
+      "std": 0.613,
+      "min": 1.0,
+      "25%": 1.5848,
+      "50%": 2.0,
+      "75%": 2.4774,
+      "max": 3.0
+    },
+    "FAF": {
+      "count": 2111.0,
+      "mean": 1.0103,
+      "std": 0.8506,
+      "min": 0.0,
+      "25%": 0.1245,
+      "50%": 1.0,
+      "75%": 1.6667,
+      "max": 3.0
+    },
+    "TUE": {
+      "count": 2111.0,
+      "mean": 0.6579,
+      "std": 0.6089,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.6254,
+      "75%": 1.0,
+      "max": 2.0
+    }
+  }
+}
