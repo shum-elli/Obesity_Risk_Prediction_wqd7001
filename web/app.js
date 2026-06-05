@@ -124,13 +124,21 @@ function riskBand(score) {
   return "Higher risk profile";
 }
 
-function updateGauge(score, top) {
+function topNonNormalClass(rows) {
+  const nonNormalRows = rows
+    .filter((row) => row.label !== "Normal_Weight")
+    .sort((a, b) => b.probability_percent - a.probability_percent);
+  return nonNormalRows[0] || rows[0];
+}
+
+function updateGauge(displayClass) {
+  const score = displayClass.probability_percent;
   const angle = -90 + (score / 100) * 180;
   document.querySelector("#riskNeedle").style.transform = `rotate(${angle}deg)`;
   document.querySelector("#riskValue").textContent = pct(score, 0);
   document.querySelector("#riskLabel").textContent = riskBand(score);
-  document.querySelector("#topClass").textContent = niceLabel(top.label);
-  document.querySelector("#topProb").textContent = pct(top.probability_percent);
+  document.querySelector("#topClass").textContent = niceLabel(displayClass.label);
+  document.querySelector("#topProb").textContent = pct(displayClass.probability_percent);
 }
 
 function renderClassBars(rows) {
@@ -286,7 +294,7 @@ async function runPrediction() {
   statusNode.textContent = "Calling local model...";
   try {
     const result = await postJson("/api/predict", payload);
-    updateGauge(result.obesity_probability_percent, result.top_prediction);
+    updateGauge(topNonNormalClass(result.class_probabilities));
     renderClassBars(result.class_probabilities);
     renderDrivers(payload);
     statusNode.textContent = "Model prediction updated.";
