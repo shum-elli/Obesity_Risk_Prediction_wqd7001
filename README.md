@@ -11,6 +11,7 @@ The best model recorded in the included report is `HistGradientBoosting`.
 ## Repository Contents
 
 - `web_app.py` - local web interface for entering questionnaire values and viewing predictions.
+- `web/` - advanced model-backed visualization interface with a responsive dashboard.
 - `train_personal_obesity_models.py` - trains and evaluates the machine learning models.
 - `predict_personal_metrics.py` - command-line prediction script.
 - `generate_eda.py` - generates exploratory data analysis charts and summaries.
@@ -48,6 +49,22 @@ Then open:
 ```text
 http://127.0.0.1:8000
 ```
+
+## Run the Advanced Visualization
+
+Start the model-backed visualization server:
+
+```bash
+python web/server.py
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8088/web/index.html
+```
+
+This dashboard uses the trained model bundle through local API endpoints and shows the risk gauge, seven-class probability ranking, questionnaire controls, explanation chips, and model comparison. The latest model bundle uses 13 questionnaire features and excludes transportation from personal prediction input.
 
 ## Train Models
 

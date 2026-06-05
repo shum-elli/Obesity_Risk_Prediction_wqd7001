@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obesity Risk Profile Visualization</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">WQD7001 Group 6 Data Product</p>
+        <h1>Obesity Risk Profile</h1>
+      </div>
+      <div class="status-strip" aria-label="Data status">
+        <span id="rowCount">Loading data</span>
+        <span id="bestModel">Model pending</span>
+      </div>
+    </header>
+
+    <main class="dashboard" aria-live="polite">
+      <section class="risk-stage" aria-labelledby="riskTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Questionnaire-only screening</p>
+            <h2 id="riskTitle">Current profile risk anatomy</h2>
+          </div>
+          <select id="modelSelect" aria-label="Select model"></select>
+        </div>
+
+        <div class="risk-grid">
+          <div class="gauge-panel">
+            <svg id="riskGauge" class="risk-gauge" viewBox="0 0 360 220" role="img" aria-labelledby="gaugeTitle gaugeDesc">
+              <title id="gaugeTitle">Obesity risk gauge</title>
+              <desc id="gaugeDesc">Semicircular gauge showing estimated obesity risk from the questionnaire controls.</desc>
+              <path class="gauge-track" d="M 42 178 A 138 138 0 0 1 318 178"></path>
+              <path class="gauge-band band-low" d="M 42 178 A 138 138 0 0 1 120 62"></path>
+              <path class="gauge-band band-mid" d="M 120 62 A 138 138 0 0 1 240 62"></path>
+              <path class="gauge-band band-high" d="M 240 62 A 138 138 0 0 1 318 178"></path>
+              <line id="riskNeedle" class="gauge-needle" x1="180" y1="178" x2="180" y2="62"></line>
+              <circle cx="180" cy="178" r="9" class="needle-hub"></circle>
+              <text x="180" y="132" class="risk-number" id="riskValue">--%</text>
+              <text x="180" y="158" class="risk-label" id="riskLabel">Waiting for profile</text>
+              <text x="44" y="205" class="tick-label">Lower</text>
+              <text x="180" y="30" class="watch-label">Watch</text>
+              <text x="286" y="205" class="tick-label">Higher</text>
+            </svg>
+
+            <div class="summary-row">
+              <div>
+                <span class="summary-value" id="topClass">--</span>
+                <span class="summary-label">Top predicted class</span>
+              </div>
+              <div>
+                <span class="summary-value" id="topProb">--%</span>
+                <span class="summary-label">Class confidence</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="probability-panel">
+            <h3>Seven-class probability ranking</h3>
+            <div id="classBars" class="class-bars"></div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="control-panel" aria-labelledby="controlsTitle">
+        <div class="section-head compact">
+          <div>
+            <p class="eyebrow">Editable inputs</p>
+            <h2 id="controlsTitle">Full questionnaire</h2>
+          </div>
+          <button id="resetBtn" class="ghost-btn" type="button">Reset</button>
+        </div>
+
+        <div id="questionnaireFields" class="field-grid"></div>
+        <div id="predictStatus" class="predict-status">Preparing model call...</div>
+      </aside>
+
+      <section class="drivers-panel" aria-labelledby="driversTitle">
+        <div class="section-head compact">
+          <div>
+            <p class="eyebrow">Profile explanation</p>
+            <h2 id="driversTitle">Why this profile moves</h2>
+          </div>
+        </div>
+        <div id="driverChips" class="driver-chips"></div>
+      </section>
+
+      <section class="model-panel" aria-labelledby="modelTitle">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Model trust</p>
+            <h2 id="modelTitle">Performance comparison</h2>
+          </div>
+          <div id="metricTabs" class="metric-tabs" role="tablist" aria-label="Metric selection"></div>
+        </div>
+        <div id="modelChart" class="model-chart"></div>
+      </section>
+
+      <section class="context-panel" aria-labelledby="contextTitle">
+        <div>
+          <p class="eyebrow">Dataset context</p>
+          <h2 id="contextTitle">Class balance and cohort signals</h2>
+        </div>
+        <div id="contextStats" class="context-stats"></div>
+      </section>
+    </main>
+
+    <footer class="source-note">
+      Source: local project model report and EDA summary. Inputs intentionally exclude height, weight, and BMI. This visualization is for coursework risk awareness and is not a medical diagnosis.
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
