@@ -7,7 +7,9 @@ from urllib.parse import urlparse
 
 
 WEB_DIR = Path(__file__).resolve().parent
-PROJECT_DIR = WEB_DIR.parent / "project"
+PROJECT_DIR = WEB_DIR.parent
+if not (PROJECT_DIR / "personal_obesity_bundle.joblib").exists():
+    PROJECT_DIR = WEB_DIR.parent / "project"
 HOST = "127.0.0.1"
 PORT = 8088
 
